@@ -5,6 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(https://blog.appsignal.com/_next/image?url=%2Fimages%2Fblog%2F2022-06%2Fcrashable-component.png&w=1920&q=75);
+  background-image: url(https://i.ytimg.com/vi/Ng2ZWCWNmoU/maxresdefault.jpg);
+  background-color: #28272cde;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  color: white;
+  padding: 5px;
 }
 
 code {

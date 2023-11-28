@@ -19,52 +19,52 @@ const league = {
   membre4: {
     nom: 'Catwoman',
     age: 33
+  },
+  membre5: {
+    nom: "Hayao Kawabe",
+    age: 25
   }
 }
 
 class App extends Component {
   state = { 
     league: league,
-    plus : 2
-   } 
+    plus : 1
+  }
 
-   handleClick = (nb) =>{
+  componentDidMount() {
+    console.log("montage chef")
+  }
+
+  componentDidUpdate() {
+    console.log("je recharge mon composant chef")
+  }
+
+  componentWillUnmount() {
+    console.log("démontage chef")
+  }
+
+  handleClick = (nb) =>{
     const league = {...this.state.league}
     league.membre1.age += nb
     this.setState({league})
-   }
+  }
   render() { 
+    const list = Object.keys(this.state.league).map(
+      iteration => {
+        return (
+          <Membre key={iteration} age={this.state.league[iteration].age} nom={this.state.league[iteration].nom} />
+        )
+      }
+    )
     return (
       <>
         <h1>Bonjour le mondeeeeeeeeeeeeeeeeeeeeeee</h1>
-        <h2>Le monde va mal les amis</h2>
-        <Membre 
-          nom={this.state.league.membre1.nom}
-          age={this.state.league.membre1.age}
-        />
-        <Membre 
-          nom={this.state.league.membre2.nom}
-          age={this.state.league.membre2.age}
-        />
-        <Membre 
-          nom={this.state.league.membre3.nom}
-          age={this.state.league.membre3.age}
-        />
-        <Membre
-          nom={this.state.league.membre4.nom}
-          age={this.state.league.membre4.age}
-        />
-        <Membre
-          nom="ANTOINERSCL"
-          age="22"
-        >
-          <span> Je suis décéption </span>
-        </Membre>
-        
+        {list}
         <Button 
-        plus={this.state.plus}
-        vieilir={()=>this.handleClick(this.state.plus)}
-      />
+          plus={this.state.plus}
+          vieilir={()=>this.handleClick(this.state.plus)}
+        />
       </>
     );
   }
