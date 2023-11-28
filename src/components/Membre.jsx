@@ -1,10 +1,23 @@
-const Membre = ({nom, children, age} ) => {
+import Affichage from "./Affichage";
+import Button from "./Button"
+
+const Membre = ({nom, children, age, handleChange, hideName, plus, handleClick}) => {
+    // const nom = props.nom
+    // const children = props.children
+    // const {nom, children} = props
     return ( 
         <>
-            <h2 style={{color: age < 35 ? 'dodgerblue':'crimson'}}>Membre : {nom.toUpperCase()}</h2>
-            <h2>age : {age}</h2>
-            
-            { children ? <p>{children}</p> : null}
+            <Affichage 
+                nom={nom}
+                age={age}
+            />
+            <input type="text" value={nom} onChange={handleChange}/>
+            <Button 
+                plus={plus}
+                veillir={handleClick}
+            />
+            <button onClick={hideName}>X</button>
+            { children ? <p>{children}</p> : null }
         </>
      );
 }

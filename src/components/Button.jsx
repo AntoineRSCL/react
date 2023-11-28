@@ -1,6 +1,6 @@
 const Button = (props) => {
     return ( 
-        <button onClick={props.vieilir}>
+        <button onClick={props.veillir}>
             +{props.plus}
         </button>
      );
