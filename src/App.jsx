@@ -29,7 +29,8 @@ const league = {
 class App extends Component {
   state = { 
     league: league,
-    plus : 1
+    plus : 2,
+    isShow: false
   }
 
   componentDidMount() {
@@ -49,6 +50,11 @@ class App extends Component {
     league.membre1.age += nb
     this.setState({league})
   }
+
+  handleShow = () => {
+    const isShow = !this.state.isShow
+    this.setState({isShow})
+  }
   render() { 
     const list = Object.keys(this.state.league).map(
       iteration => {
@@ -61,6 +67,20 @@ class App extends Component {
       <>
         <h1>Bonjour le mondeeeeeeeeeeeeeeeeeeeeeee</h1>
         {list}
+        <Membre
+          age='33'
+          nom="Hack_Sel 8_Sel"
+        >
+          {
+            this.state.isShow ? <strong>OHOHOHOHO AXELLLLLLLLLLLLLLL WITSEEEEEEEEEEEEL</strong> : null
+          }
+          
+
+          <button onClick={this.handleShow}>
+            {this.state.isShow ? 'Cacher' : "Montrer"}
+
+          </button>
+        </Membre>
         <Button 
           plus={this.state.plus}
           vieilir={()=>this.handleClick(this.state.plus)}
